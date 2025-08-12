@@ -4,6 +4,30 @@ import streamlit as st
 # 제목 추가
 st.title("🎉 내 첫 번째 Streamlit 앱!")
 
+# 사이드바에 통계 추가
+st.sidebar.divider()
+st.sidebar.subheader("📊 통계")
+
+col1, col2 = st.sidebar.columns(2)
+with col1:
+    st.metric("총 프롬프트", "127")
+with col2:
+    st.metric("총 사용자", "23")
+
+st.sidebar.metric("오늘 등록", "5", delta="2")
+
+# 홈 화면에 검색바 추가
+search_query = st.text_input(
+    "🔍 프롬프트 검색",
+    placeholder="키워드를 입력하세요..."
+)
+
+if search_query:
+    st.info(f"'{search_query}' 검색 결과 (기능 구현 예정)")
+
+
+
+
 # 텍스트 추가
 st.write("안녕하세요! Streamlit으로 만든 웹 애플리케이션입니다.")
 
